@@ -31,6 +31,16 @@ export default function(app, db) {
 		})
 	})
 
+	app.get('/todolist/getToDoList.action', (req, res) => {
+		db.collection('ToDoList').find({}).toArray((err, result) => {
+			if (err) {
+				res.send({'error': 'error in /todolist/getToDoById.action/:id'})
+			} else {
+				res.send(result)
+			}
+		})
+	})
+
 	app.delete('/todolist/deleteToDoById.action/:id', (req, res) => {
 		const id = {'_id': new ObjectID(req.params.id)}
 		db.collection('ToDoList').deleteOne(id, (err, result) => {
