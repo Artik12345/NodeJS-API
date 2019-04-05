@@ -1,6 +1,7 @@
 
 import {ObjectID} from 'mongodb'
 const toDoCategories = require(appRoot +'/common/toDoCategories')
+const {mapIds} = require(appRoot +'/common/helpers')
 
 export default function(app, db) {
 
@@ -36,7 +37,7 @@ export default function(app, db) {
 			if (err) {
 				res.send({'error': 'error in /todolist/getToDoById.action/:id'})
 			} else {
-				res.send(result)
+				res.send(mapIds(result))
 			}
 		})
 	})
