@@ -11,7 +11,6 @@ export default function(app, db) {
 			category: toDoCategories.CategoryOne
 		}
 		db.collection('ToDoList').insertOne(toDo, (err, result) => {
-			console.log(result)
 			if (err) {
 				res.send({'error': 'error in /todolist/createToDo.action'})
 			} else {
