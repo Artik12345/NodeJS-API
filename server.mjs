@@ -1,5 +1,5 @@
 import Express from 'express'
-import {MongoClient, ObjectID} from 'mongodb'
+import { MongoClient } from 'mongodb'
 import BodyParser from 'body-parser'
 import DB from './config/db.mjs'
 import path from 'path'

@@ -1,0 +1,55 @@
+@import 'common';
+
+$border: 1px solid #e5e8ec;
+
+.main {
+    width: 800px;
+    height: auto;
+    margin: 100px auto;
+    display: flex;
+    border: $border;
+    background: #fbfdff;
+    justify-content: space-around;
+}
+
+.main__content {
+    padding: 20px;
+}
+
+.main__left-content {
+    @extend .main__content;
+    width: 300px;
+}
+
+.main__right-content {
+    @extend .main__content;
+    width: 300px;
+}
+
+.search {
+    height: 40px;
+    width: inherit;
+    padding: 5px 10px;
+    font-size: 17px;
+    border: $border;
+}
+
+.data-list {
+    margin: 25px 0 0 0;
+    padding: 15px;
+    border: $border;
+    height: auto;
+    width: auto;
+}
+
+.data-list__content {
+    margin: 0 0 6px 0;
+    list-style-type: none;
+    color: #4C75F3;
+    cursor: pointer;
+}
+
+.active-user {
+    padding: 15px;
+    border: $border;
+}
