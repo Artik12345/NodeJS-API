@@ -1,16 +1,12 @@
-module.exports = {
 
-	mapIds: (arr) => {
-		return arr.map(item => renameObjProp(item, '_id', 'id'))
-	},
+exports.mapIds = arr => arr.map(item => renameObjProp(item, '_id', 'id'))
 
-	renameObjProp: (obj, oldPropName, newPropName) => {
-		if (!obj.hasOwnProperty(oldPropName)) {
-			return false
-		}
-		obj[newPropName] = obj[oldPropName]
-		delete obj[oldPropName]
-		return true
+const renameObjProp = (obj, oldPropName, newPropName) => {
+	if (!obj.hasOwnProperty(oldPropName)) {
+		return "dont have prop to rename"
 	}
-
+	obj[newPropName] = obj[oldPropName]
+	delete obj[oldPropName]
+	return obj
 }
+

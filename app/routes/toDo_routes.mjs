@@ -33,10 +33,11 @@ export default function(app, db) {
 	})
 
 	app.get('/todolist/getToDoList.action', (req, res) => {
-		db.collection('ToDoList').find({}).toArray((err, result) => {
+		db.collection('ToDoList').find().toArray((err, result) => {
 			if (err) {
 				res.send({'error': 'error in /todolist/getToDoById.action/:id'})
 			} else {
+				console.log('RESULT --> ', result)
 				res.send(mapIds(result))
 			}
 		})
