@@ -5,7 +5,7 @@ const {mapIds} = require(appRoot +'/common/helpers')
 
 export default function(app, db) {
 
-	app.post('/todolist/createToDo.action', (req, res) => {
+	app.post('/todolist/createToDo.action', (req, res, next) => {
 		const toDo = {
 			title: req.body.title,
 			description: req.body.description,
@@ -21,7 +21,7 @@ export default function(app, db) {
 		})
 	})
 
-	app.get('/todolist/getToDoById.action/:id', (req, res) => {
+	app.get('/todolist/getToDoById.action/:id', (req, res, next) => {
 		const id = {'_id': new ObjectID(req.params.id)}
 		db.collection('ToDoList').findOne(id, (err, result) => {
 			if (err) {
@@ -32,10 +32,10 @@ export default function(app, db) {
 		})
 	})
 
-	app.get('/todolist/getToDoList.action', (req, res) => {
+	app.get('/todolist/getToDoList.action', (req, res, next) => {
 		db.collection('ToDoList').find().toArray((err, result) => {
 			if (err) {
-				res.send({'error': 'error in /todolist/getToDoById.action/:id'})
+				res.send({'error': 'error in /todolist/getToDoList.action'})
 			} else {
 				console.log('RESULT --> ', result)
 				res.send(mapIds(result))
@@ -43,7 +43,7 @@ export default function(app, db) {
 		})
 	})
 
-	app.delete('/todolist/deleteToDoById.action/:id', (req, res) => {
+	app.delete('/todolist/deleteToDoById.action/:id', (req, res, next) => {
 		const id = {'_id': new ObjectID(req.params.id)}
 		db.collection('ToDoList').deleteOne(id, (err, result) => {
 			if (err) {
@@ -54,7 +54,7 @@ export default function(app, db) {
 		})
 	})
 
-	app.put('/todolist/editToDoById.action/:id', (req, res) => {
+	app.put('/todolist/editToDoById.action/:id', (req, res, next) => {
 		const id = {'_id': new ObjectID(req.params.id)}
 		const newToDo = {
 			title: req.body.title,

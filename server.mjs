@@ -11,7 +11,7 @@ global.appRoot = path.resolve(__dirname +'/app')
 
 App.use(BodyParser.urlencoded({ extended: true }));
 console.log(DB.url)
-MongoClient.connect(DB.url, (err, client) => {
+MongoClient.connect(DB.url, { useNewUrlParser: true }, (err, client) => {
 	if (err) {
 		console.log('ERROR ---> ', err)
 	}
