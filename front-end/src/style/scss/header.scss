@@ -1,0 +1,30 @@
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+	padding: 0 20px;
+	height: 64px;
+
+	&-content {
+		
+	}
+
+	&__title {
+		font-size: 18px;
+		font-weight: 600;
+	}
+	&__nav {
+		height: 100%;
+		display: flex;
+		& > a {
+			display: flex;
+			align-items: center;
+			margin-left: 15px;
+			height: 100%;
+			&:hover {
+				border-bottom: 2px solid #00aae7;
+			}
+		}
+	}
+}

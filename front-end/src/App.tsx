@@ -1,42 +1,32 @@
 import React from 'react';
-import { toDoApi } from './services/services'
-import {ToDoItem} from './services/interfaces/ToDoItem'
+import { Route, Switch, Redirect } from 'react-router-dom';
+import Header from './components/Header'
+import { routes } from './routes'
+import ToDoList from './components/ToDoList'
+import './style/scss/main.scss'
 
-interface AppProps {}
+interface AppProps { }
 
-interface AppState {
-  toDoList: ToDoItem[];
-}
+export class App extends React.Component {
 
+	constructor(props: AppProps) {
+		super(props)
+		this.state = {}
+	}
 
-
-export class App extends React.Component<AppProps, AppState> {
-
-  constructor(props: AppProps) {
-    super(props)
-    this.state = {
-      toDoList: []
-    }
-  }
-
-  componentWillMount() {
-    toDoApi.getToDoList().then(res => {
-      this.setState({toDoList: res})
-    })
-  }
-
-  render() {
-    const { toDoList } = this.state
-    return (
-      <div className="opaaa">
-        {!!toDoList.length && toDoList.map(item => {
-          return (
-            <div>{item.title}</div>
-          )
-        })}
-      </div>
-    )
-  }
+	render() {
+		return (
+			<div className="layout">
+				<Header />
+				<div className="app-wrapper">
+					<Switch>
+						<Route path={routes.toDoList} component={ToDoList} />
+						<Redirect from='/' to={routes.toDoList} />
+					</Switch>
+				</div>
+			</div>
+		)
+	}
 }
 
 export default App;
