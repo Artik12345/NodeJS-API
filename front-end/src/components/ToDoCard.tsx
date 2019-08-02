@@ -13,8 +13,8 @@ export const ToDoCard = ({ toDo }: ToDoCardProps) => {
 		<div className="todoitem">
 			<div className="todoitem__title">
 				<NavLink to={routes.toDoById(toDo.id)}>{toDo.title}</NavLink>
-				<div className="todoitem__description">{toDo.description}</div>
 			</div>
+			<div className="todoitem__description">{toDo.description}</div>
 		</div>
 	)
 

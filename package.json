@@ -2,7 +2,8 @@
 	"name": "NodeAPI_test_app",
 	"version": "1.0.0",
 	"scripts": {
-		"dev": "nodemon index.js"
+		"dev": "nodemon index.js",
+		"start": "nodemon index.js & cd front-end && npm run start"
 	},
 	"author": "Artik12345",
 	"dependencies": {

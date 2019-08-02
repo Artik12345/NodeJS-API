@@ -1,10 +1,14 @@
 
 .todoitem {
 	padding: 15px;
+	border-radius: 4px;
+	margin: 0 0 15px 0;
+	background: #fff;
 
 	&__title {
 		color: rgba(3, 168, 124, 1);
 		font-weight: 600;
+		margin: 0 0 10px 0;
 	}
 	&__descriptio {
 		
